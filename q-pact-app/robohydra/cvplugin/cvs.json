@@ -1,0 +1,138 @@
+[
+    {
+        "id": "kevinrigot",
+        "name": "Kevin Rigot",
+        "birthdate": "",
+        "phoneNumber": "string",
+        "email": "string",
+        "description": "string",
+        "experiences": [
+          {
+            "from": "string",
+            "to": "string",
+            "company": "string",
+            "project": {
+              "name": "string",
+              "description": "string",
+              "team": "string",
+              "methodology": {
+                "name": "string",
+                "version": "string",
+                "tags": [
+                  "string"
+                ]
+              },
+              "technologies": {
+                "name": "string",
+                "version": "string",
+                "tags": [
+                  "string"
+                ]
+              }
+            },
+            "role": {
+              "name": "string",
+              "achievements": "string"
+            }
+          }
+        ],
+        "skills": [
+          {
+            "technology": {
+              "name": "string",
+              "version": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "selfRating": 0
+          }
+        ],
+        "languageSkills": [
+          {
+            "technology": {
+              "name": "string",
+              "version": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "selfRating": 0
+          }
+        ],
+        "trainings": [
+          "string"
+        ],
+        "certifications": [
+          "string"
+        ]
+      },
+      {
+        "id": "johndoe",
+        "name": "John Doe",
+        "birthdate": "",
+        "phoneNumber": "string",
+        "email": "string",
+        "description": "string",
+        "experiences": [
+          {
+            "from": "string",
+            "to": "string",
+            "company": "string",
+            "project": {
+              "name": "string",
+              "description": "string",
+              "team": "string",
+              "methodology": {
+                "name": "string",
+                "version": "string",
+                "tags": [
+                  "string"
+                ]
+              },
+              "technologies": {
+                "name": "string",
+                "version": "string",
+                "tags": [
+                  "string"
+                ]
+              }
+            },
+            "role": {
+              "name": "string",
+              "achievements": "string"
+            }
+          }
+        ],
+        "skills": [
+          {
+            "technology": {
+              "name": "string",
+              "version": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "selfRating": 0
+          }
+        ],
+        "languageSkills": [
+          {
+            "technology": {
+              "name": "string",
+              "version": "string",
+              "tags": [
+                "string"
+              ]
+            },
+            "selfRating": 0
+          }
+        ],
+        "trainings": [
+          "string"
+        ],
+        "certifications": [
+          "string"
+        ]
+      }
+  ]
