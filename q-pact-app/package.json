@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "ng-swagger-gen -i ../rest-api.yml",
+    "api": "ng-swagger-gen -i ../cv-viewer-config/rest-api.yml",
     "mock": "robohydra robohydra/robohydra.conf"
   },
   "private": true,

@@ -13,8 +13,6 @@ paths:
       summary: "Retrieve all cvs summary"
       description: ""
       operationId: "getCv"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       responses:
@@ -30,8 +28,6 @@ paths:
       summary: "Retrieve a specific cv detail"
       description: ""
       operationId: "getCvById"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       parameters: 
