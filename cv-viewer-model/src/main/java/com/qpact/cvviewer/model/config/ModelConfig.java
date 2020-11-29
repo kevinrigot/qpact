@@ -1,9 +1,11 @@
 package com.qpact.cvviewer.model.config;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan("com.qpact.cvviewer.model")
+@EnableJpaRepositories("com.qpact.cvviewer.model")
+@EntityScan("com.qpact.cvviewer.model")
 public class ModelConfig {
 }
