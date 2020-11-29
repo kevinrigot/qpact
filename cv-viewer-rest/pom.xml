@@ -20,7 +20,6 @@
 			<artifactId>cv-viewer-model</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -29,6 +28,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -59,7 +62,11 @@
 			<scope>runtime</scope>
 			<version>1.4.199</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.2.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -74,9 +81,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-codegen-maven-plugin</artifactId>
-				<version>2.3.1</version>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<!-- RELEASE_VERSION -->
+				<version>5.0.0-beta3</version>
+				<!-- /RELEASE_VERSION -->
 				<executions>
 					<execution>
 						<goals>
@@ -84,14 +93,18 @@
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/../cv-viewer-config/rest-api.yml</inputSpec>
-							<language>spring</language>
-							<apiPackage>com.qpact.cvviewer.api</apiPackage>
-							<modelPackage>com.qpact.cvviewer.apimodel</modelPackage>
+							<output>${project.build.directory}/generated-sources/openapi</output>
+							<generatorName>spring</generatorName>
+							<library>spring-boot</library>
+							<generateApiTests>false</generateApiTests>
+
+							<apiPackage>com.qpact.cvviewer.rest.api</apiPackage>
+							<modelPackage>com.qpact.cvviewer.rest.model</modelPackage>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
-								<generateSupportingFiles>false</generateSupportingFiles>
+								<openApiNullable>false</openApiNullable>
+								<swaggerDocketConfig>true</swaggerDocketConfig>
 							</configOptions>
-							<supportingFilesToGenerate>none</supportingFilesToGenerate>
 						</configuration>
 					</execution>
 				</executions>

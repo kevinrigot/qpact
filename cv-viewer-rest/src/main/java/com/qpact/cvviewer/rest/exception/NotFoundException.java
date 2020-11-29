@@ -1,4 +1,4 @@
-package com.qpact.cvviewer.exception;
+package com.qpact.cvviewer.rest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

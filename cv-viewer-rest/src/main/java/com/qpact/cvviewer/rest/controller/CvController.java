@@ -1,9 +1,9 @@
-package com.qpact.cvviewer.controller;
+package com.qpact.cvviewer.rest.controller;
 
-import com.qpact.cvviewer.api.CvApi;
-import com.qpact.cvviewer.apimodel.Cv;
-import com.qpact.cvviewer.apimodel.CvSummary;
-import com.qpact.cvviewer.service.CvService;
+import com.qpact.cvviewer.rest.api.CvApi;
+import com.qpact.cvviewer.rest.model.Cv;
+import com.qpact.cvviewer.rest.model.CvSummary;
+import com.qpact.cvviewer.rest.service.CvService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

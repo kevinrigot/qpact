@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: kevin.rigot
+      changes:
+        - createTable:
+            tableName: CV
+            columns:
+              - column:
+                  name: ID
+                  type: varchar(250)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: EMAIL
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: varchar(250)
+              - column:
+                  name: BIRTHDATE
+                  type: varchar(250)
+              - column:
+                  name: PHONE_NUMBER
+                  type: varchar(250)
+              - column:
+                  name: DESCRIPTION
+                  type: varchar(250)
+  - changeSet:
+      id: 2
+      author: kevin.rigot
+      changes:
+        - addUniqueConstraint:
+            columnNames: EMAIL
+            constraintName: UK_CV_EMAIL
+            tableName: CV

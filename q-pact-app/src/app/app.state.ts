@@ -1,4 +1,4 @@
-import { Cv } from '@api/models';
+import { Cv } from '@api';
 
 export interface State{
     cvs: Cv[];

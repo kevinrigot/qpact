@@ -1,172 +1,170 @@
-swagger: "2.0"
+openapi: 3.0.1
 info:
+  title: CV API
   description: CV Api
-  version: "1.0.0"
-  title: "CV API"
-  termsOfService: "http://kevinrigot.net"
-host: "localhost"
-basePath: "/"
+  termsOfService: http://kevinrigot.net
+  version: 1.0.0
+servers:
+- url: http://localhost:4200/q-pact
+tags:
+  - name: Cv
+    description: All about cv
 
 paths:
   /cv:
     get:
-      summary: "Retrieve all cvs summary"
-      description: ""
-      operationId: "getCv"
-      produces:
-      - "application/json"
+      tags:
+        - Cv
+      summary: Retrieve all cvs summary
+      operationId: getCv
       responses:
         200:
-          description: "The list of CV Summary"
-          schema: 
-            type: "array"
-            items:          
-              $ref: "#/definitions/CvSummary"
-              
+          description: The list of CV Summary
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CvSummary'
   /cv/{cvId}:
     get:
-      summary: "Retrieve a specific cv detail"
-      description: ""
-      operationId: "getCvById"
-      produces:
-      - "application/json"
-      parameters: 
-      - in: path
-        name: cvId
+      tags:
+        - Cv
+      summary: Retrieve a specific cv detail
+      operationId: getCvById
+      parameters:
+      - name: cvId
+        in: path
+        description: The id of the cv requested
         required: true
-        description: "The id of the cv requested"
-        type: string
+        schema:
+          type: string
       responses:
         200:
-          description: "The requested CV detail"
-          schema: 
-            $ref: "#/definitions/Cv"            
-        404: 
-          description: "The cv id wasn't found"
-
-    
-definitions:
-  CvSummary:
-    type: "object"
-    description: "Resume with description but without any experiences nor skills"
-    properties:
-      id:
-        type: "string"
-      name:
-        type: string
-      birthdate:
-        type: string
-      phoneNumber:
-        type: string
-      email:
-        type: string
-      description:
-        type: string    
-  Cv:
-    #Open Api 3
-    #allOf:
-    #- $ref: "#/definitions/CvSummary"
-    type: "object"
-    description: "Resume with all details"
-    properties:
-      id:
-        type: "string"
-      name:
-        type: string
-      birthdate:
-        type: string
-      phoneNumber:
-        type: string
-      email:
-        type: string
-      description:
-        type: string    
-      experiences:
-        type: array
-        items:
-          $ref: "#/definitions/Experience"
-      skills:
-        type: array
-        items:
-          $ref: "#/definitions/Skill"
-      languageSkills:
-        type: array
-        items:
-          $ref: "#/definitions/Skill"
-      trainings:
-        type: array
-        description: Name of the training + duration
-        items:
+          description: The requested CV detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cv'
+        404:
+          description: The cv id wasn't found
+          content: {}
+components:
+  schemas:
+    CvSummary:
+      type: object
+      properties:
+        id:
           type: string
-      certifications:
-        type: array
-        description: Name of the certification
-        items:
+        name:
           type: string
-  Experience:
-    type: object
-    description: "Working experience"
-    properties:
-      from:
-        type: string
-      to:
-        type: string
-      company:
-        type: string
-        description: "Company name"
-      project:
-        $ref: "#/definitions/Project"
-      role:
-        $ref: "#/definitions/Role"
-  Project:
-    type: object
-    description: "Project description and technologies used"
-    properties:
-      name:
-        type: string
-      description:
-        type: string
-        description: "Description of the project (why and what)"
-      team:
-        type: string
-        description: "Number of members in the team and in which roles"
-      methodology:
-        $ref: "#/definitions/Technology"
-      technologies:
-        $ref: "#/definitions/Technology"
-  Technology:
-    type: object
-    properties:
-      name:
-        type: string
-      parentTechnology:
-        $ref: "#/definitions/Technology"
-      version:
-        type: string
-      tags:
-        type: array
-        description: "Type of technology (language, server, database, tool, ...)"
-        items:
+        birthdate:
           type: string
-  Role:
-    type: object
-    description: "Role of the person in the working experience/project"
-    properties:
-      name:
-        type: string
-        description: Role title (Developer, Senior dev, analyst, ...)
-      achievements:
-        type: string
-        description: "Personal achievement in the project"
-  Skill:
-    type: object
-    properties:
-      technology:
-        $ref: "#/definitions/Technology"
-      selfRating:
-        type: number
-        description: "Self rating on 5"
-      
-        
-    
-          
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        description:
+          type: string
+      description: Resume with description but without any experiences nor skills
+    Cv:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        birthdate:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        description:
+          type: string
+        experiences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Experience'
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        languageSkills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        trainings:
+          type: array
+          description: Name of the training + duration
+          items:
+            type: string
+        certifications:
+          type: array
+          description: Name of the certification
+          items:
+            type: string
+      description: Resume with all details
+    Experience:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        company:
+          type: string
+          description: Company name
+        project:
+          $ref: '#/components/schemas/Project'
+        role:
+          $ref: '#/components/schemas/Role'
+      description: Working experience
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: Description of the project (why and what)
+        team:
+          type: string
+          description: Number of members in the team and in which roles
+        methodology:
+          $ref: '#/components/schemas/Technology'
+        technologies:
+          $ref: '#/components/schemas/Technology'
+      description: Project description and technologies used
+    Technology:
+      type: object
+      properties:
+        name:
+          type: string
+        parentTechnology:
+          $ref: '#/components/schemas/Technology'
+        version:
+          type: string
+        tags:
+          type: array
+          description: Type of technology (language, server, database, tool, ...)
+          items:
+            type: string
+    Role:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Role title (Developer, Senior dev, analyst, ...)
+        achievements:
+          type: string
+          description: Personal achievement in the project
+      description: Role of the person in the working experience/project
+    Skill:
+      type: object
+      properties:
+        technology:
+          $ref: '#/components/schemas/Technology'
+        selfRating:
+          type: number
+          description: Self rating on 5

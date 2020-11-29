@@ -6,7 +6,7 @@
 /out-tsc
 
 #generated
-/src/app/api/**
+/src/api/**
 
 # dependencies
 /node_modules

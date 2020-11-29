@@ -1,4 +1,4 @@
-import { Cv } from '@api/models';
+import { Cv } from '@api';
 import { LoadCvSuccess, LOAD_CV_SUCCESS } from '@qpact-app/actions/loadcv.action';
 
 export function cvs(state: Cv[] = [], action: LoadCvSuccess){

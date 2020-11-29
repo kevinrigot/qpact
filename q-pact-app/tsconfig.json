@@ -14,8 +14,9 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": ["jest"],
     "paths": {
-      "@api/*": ["./src/app/api/*"],
+      "@api": ["./src/api/index.ts"],
       "@qpact-app/*": ["./src/app/*"],
     },
     "lib": [

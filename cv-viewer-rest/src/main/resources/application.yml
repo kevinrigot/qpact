@@ -9,7 +9,10 @@ spring:
     password:
     driver-class-name: org.h2.Driver
     initialization-mode: always
-  jpa.hibernate.ddl-auto: update
+  jpa:
+    hibernate.ddl-auto: validate
   h2.console.enabled: true
-
+  liquibase:
+    enabled: true
+#  change-log: classpath:liquibase-changeLog.xml
 management.endpoints.web.exposure.include: info, health, mappings

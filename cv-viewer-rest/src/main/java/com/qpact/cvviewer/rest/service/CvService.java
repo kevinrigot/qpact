@@ -1,9 +1,10 @@
-package com.qpact.cvviewer.service;
+package com.qpact.cvviewer.rest.service;
 
-import com.qpact.cvviewer.apimodel.Cv;
-import com.qpact.cvviewer.apimodel.CvSummary;
-import com.qpact.cvviewer.exception.NotFoundException;
-import com.qpact.cvviewer.repository.CvRepository;
+import com.qpact.cvviewer.rest.model.Cv;
+import com.qpact.cvviewer.rest.model.CvSummary;
+import com.qpact.cvviewer.model.entity.CvDo;
+import com.qpact.cvviewer.rest.exception.NotFoundException;
+import com.qpact.cvviewer.model.repository.CvRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +21,12 @@ public class CvService {
 
 
     public List<CvSummary> getAllCv() {
-        List<com.qpact.cvviewer.model.Cv> allCvs = cvRepository.findAll();
+        List<CvDo> allCvs = cvRepository.findAll();
         return cvMapper.listOfCvEntityToListOfCvSummaryResponse(allCvs);
     }
 
     public Cv getCvById(String cvId) {
-        Optional<com.qpact.cvviewer.model.Cv> cv = cvRepository.findById(cvId);
+        Optional<CvDo> cv = cvRepository.findById(cvId);
         if(!cv.isPresent()){
             throw new NotFoundException();
         }

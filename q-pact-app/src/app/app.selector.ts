@@ -1,6 +1,6 @@
 import { State } from './app.state';
 import { createSelector } from '@ngrx/store';
-import { Cv } from '@api/models';
+import { Cv } from '@api';
 import { find } from 'lodash/fp';
 
 
