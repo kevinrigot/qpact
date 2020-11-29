@@ -5,7 +5,7 @@ info:
   termsOfService: http://kevinrigot.net
   version: 1.0.0
 servers:
-- url: http://localhost:4200/q-pact
+  - url: //localhost/
 tags:
   - name: Cv
     description: All about cv
@@ -26,19 +26,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CvSummary'
-  /cv/{cvId}:
+  /cv/{email}:
     get:
       tags:
         - Cv
       summary: Retrieve a specific cv detail
       operationId: getCvById
       parameters:
-      - name: cvId
-        in: path
-        description: The id of the cv requested
-        required: true
-        schema:
-          type: string
+        - name: email
+          in: path
+          description: The id of the cv requested
+          required: true
+          schema:
+            type: string
       responses:
         200:
           description: The requested CV detail
@@ -54,15 +54,13 @@ components:
     CvSummary:
       type: object
       properties:
-        id:
+        email:
           type: string
         name:
           type: string
         birthdate:
           type: string
         phoneNumber:
-          type: string
-        email:
           type: string
         description:
           type: string
@@ -70,15 +68,13 @@ components:
     Cv:
       type: object
       properties:
-        id:
+        email:
           type: string
         name:
           type: string
         birthdate:
           type: string
         phoneNumber:
-          type: string
-        email:
           type: string
         description:
           type: string

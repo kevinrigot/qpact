@@ -23,7 +23,7 @@ public class CvController implements CvApi{
     }
 
     @Override
-    public ResponseEntity<Cv> getCvById(String cvId) {
-        return new ResponseEntity<Cv>(cvService.getCvById(cvId), HttpStatus.OK);
+    public ResponseEntity<Cv> getCvById(String email) {
+        return new ResponseEntity<Cv>(cvService.getCvByEmail(email), HttpStatus.OK);
     }
 }

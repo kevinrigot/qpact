@@ -25,8 +25,8 @@ public class CvService {
         return cvMapper.listOfCvEntityToListOfCvSummaryResponse(allCvs);
     }
 
-    public Cv getCvById(String cvId) {
-        Optional<CvDo> cv = cvRepository.findById(cvId);
+    public Cv getCvByEmail(String email) {
+        Optional<CvDo> cv = cvRepository.findByEmail(email);
         if(!cv.isPresent()){
             throw new NotFoundException();
         }
