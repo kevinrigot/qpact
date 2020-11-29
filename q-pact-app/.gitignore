@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+#generated
+/src/app/api/**
+
 # dependencies
 /node_modules
 

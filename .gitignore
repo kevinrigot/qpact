@@ -2,3 +2,5 @@
 **/*.iml
 **/target
 **/.mvn
+/.project
+/q-pact-app/src/app/api
