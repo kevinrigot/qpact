@@ -32,7 +32,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.8.0",
     "handlebars": ">=4.7.7",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "robohydra": "^0.6.8",
     "rxjs": "^6.6.3",
     "tslib": "^1.9.0",
